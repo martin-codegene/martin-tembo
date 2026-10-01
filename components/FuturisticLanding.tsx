@@ -348,13 +348,13 @@ export default function FuturisticLanding() {
                             </div>
                         </a>
 
-                        <a href="https://github.com/metina-platforms" target="_blank" rel="noreferrer" className="flex items-center gap-4 p-4 md:p-5 rounded-xl border border-white/10 bg-white/5 hover:border-white/20 hover:bg-white/10 transition-all backdrop-blur-md group">
+                        <a href="https://github.com/martin-codegene" target="_blank" rel="noreferrer" className="flex items-center gap-4 p-4 md:p-5 rounded-xl border border-white/10 bg-white/5 hover:border-white/20 hover:bg-white/10 transition-all backdrop-blur-md group">
                             <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-[#00e5ff] to-[#8b5cf6] flex items-center justify-center text-white shrink-0 group-hover:scale-110 transition-transform">
                                 <Github size={18} strokeWidth={2} />
                             </div>
                             <div>
                                 <div className="text-[10px] uppercase tracking-widest text-white/25 mb-0.5 font-['Fira_Code',monospace]">GitHub</div>
-                                <div className="text-sm font-medium text-white">github.com/metina-platforms</div>
+                                <div className="text-sm font-medium text-white">github.com/martin-codegene</div>
                             </div>
                         </a>
                     </div>

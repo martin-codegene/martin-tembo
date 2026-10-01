@@ -70,7 +70,7 @@ const Sidebar = () => (
             className="mt-8 flex items-center gap-5 lg:mt-0"
             aria-label="Social media"
         >
-            <SocialIcon href="https://github.com/metina-platforms" icon={Github} />
+            <SocialIcon href="https://github.com/martin-codegene" icon={Github} />
             <SocialIcon href="https://www.linkedin.com/in/martin-tembo-3844b3186" icon={Linkedin} />
             <SocialIcon href="mailto:martin.codegene@gmail.com" icon={Mail} />
         </motion.ul>
