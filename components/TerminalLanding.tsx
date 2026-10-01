@@ -10,6 +10,8 @@ import {
     Github,
     ArrowRight
 } from 'lucide-react';
+import Link from 'next/link';
+import { PROJECTS } from '@/lib/projects';
 
 export default function TerminalLanding() {
     return (
@@ -110,16 +112,16 @@ export default function TerminalLanding() {
                     </div>
                     <div className="flex gap-8 md:gap-12 mt-20 pt-12 border-t border-[#1a1a1a]">
                         <div>
-                            <div className="text-[40px] font-bold text-[#00ff88] font-['JetBrains_Mono',monospace]">5+</div>
-                            <div className="text-xs text-[#555] tracking-widest uppercase mt-1">Years Experience</div>
+                            <div className="text-[40px] font-bold text-[#00ff88] font-['JetBrains_Mono',monospace]">4+</div>
+                            <div className="text-xs text-[#555] tracking-widest uppercase mt-1">Years Professional</div>
                         </div>
                         <div>
-                            <div className="text-[40px] font-bold text-[#00ff88] font-['JetBrains_Mono',monospace]">3+</div>
+                            <div className="text-[40px] font-bold text-[#00ff88] font-['JetBrains_Mono',monospace]">{PROJECTS.filter(p => p.status === 'Live').length}</div>
                             <div className="text-xs text-[#555] tracking-widest uppercase mt-1">Projects Shipped</div>
                         </div>
                         <div>
-                            <div className="text-[40px] font-bold text-[#00ff88] font-['JetBrains_Mono',monospace]">100%</div>
-                            <div className="text-xs text-[#555] tracking-widest uppercase mt-1">Client Satisfaction</div>
+                            <div className="text-[40px] font-bold text-[#00ff88] font-['JetBrains_Mono',monospace]">4</div>
+                            <div className="text-xs text-[#555] tracking-widest uppercase mt-1">Client Countries</div>
                         </div>
                     </div>
                 </div>
@@ -137,10 +139,12 @@ export default function TerminalLanding() {
                         <div className="text-[#888]">&nbsp;&nbsp;<span className="text-[#7dd3fc]">"name"</span>: <span className="text-[#fbbf24]">"Martin Tembo"</span>,</div>
                         <div className="text-[#888]">&nbsp;&nbsp;<span className="text-[#7dd3fc]">"role"</span>: <span className="text-[#fbbf24]">"Full Stack Engineer"</span>,</div>
                         <div className="text-[#888]">&nbsp;&nbsp;<span className="text-[#7dd3fc]">"location"</span>: <span className="text-[#fbbf24]">"Remote / Zambia"</span>,</div>
+                        <div className="text-[#888]">&nbsp;&nbsp;<span className="text-[#7dd3fc]">"coding_since"</span>: <span className="text-[#c084fc]">2017</span>,</div>
                         <div className="text-[#888]">&nbsp;&nbsp;<span className="text-[#7dd3fc]">"stack"</span>: [</div>
                         <div className="text-[#888]">&nbsp;&nbsp;&nbsp;&nbsp;<span className="text-[#fbbf24]">"Next.js"</span>, <span className="text-[#fbbf24]">"React"</span>,</div>
+                        <div className="text-[#888]">&nbsp;&nbsp;&nbsp;&nbsp;<span className="text-[#fbbf24]">"React Native"</span>, <span className="text-[#fbbf24]">"Hono"</span>,</div>
                         <div className="text-[#888]">&nbsp;&nbsp;&nbsp;&nbsp;<span className="text-[#fbbf24]">"NestJS"</span>, <span className="text-[#fbbf24]">"AWS"</span>,</div>
-                        <div className="text-[#888]">&nbsp;&nbsp;&nbsp;&nbsp;<span className="text-[#fbbf24]">"OpenAI"</span>, <span className="text-[#fbbf24]">"Go"</span></div>
+                        <div className="text-[#888]">&nbsp;&nbsp;&nbsp;&nbsp;<span className="text-[#fbbf24]">"AI/RAG"</span>, <span className="text-[#fbbf24]">"Go"</span></div>
                         <div className="text-[#888]">&nbsp;&nbsp;],</div>
                         <div className="text-[#888]">&nbsp;&nbsp;<span className="text-[#7dd3fc]">"available"</span>: <span className="text-[#00ff88]">true</span></div>
                         <div className="text-[#888]">{"}"}</div>
@@ -164,9 +168,9 @@ export default function TerminalLanding() {
                     <div className="bg-[#0d0d0d] p-8 hover:bg-[#111] transition-colors">
                         <Layers className="text-[#00ff88] mb-4" size={28} strokeWidth={1.5} />
                         <div className="text-base font-bold mb-2">Frontend Development</div>
-                        <div className="text-[13px] text-[#888] leading-relaxed">Building pixel-perfect, performant UIs with React & Next.js. From dashboards to AI chat interfaces.</div>
+                        <div className="text-[13px] text-[#888] leading-relaxed">Building pixel-perfect, performant UIs across web, mobile, and desktop — from dashboards to AI chat interfaces and cross-platform apps.</div>
                         <div className="flex flex-wrap gap-1.5 mt-4">
-                            {['React', 'Next.js', 'React Native', 'Expo', 'UI/UX'].map(tag => (
+                            {['React', 'Next.js', 'React Native', 'Expo', 'Tauri', 'UI/UX'].map(tag => (
                                 <span key={tag} className="font-['JetBrains_Mono',monospace] text-[10px] tracking-widest px-2 py-0.5 border border-[#1a1a1a] text-[#888]">{tag}</span>
                             ))}
                         </div>
@@ -174,9 +178,9 @@ export default function TerminalLanding() {
                     <div className="bg-[#0d0d0d] p-8 hover:bg-[#111] transition-colors">
                         <Terminal className="text-[#00ff88] mb-4" size={28} strokeWidth={1.5} />
                         <div className="text-base font-bold mb-2">AI Integration</div>
-                        <div className="text-[13px] text-[#888] leading-relaxed">Embedding LLMs into production apps — NLP workflows, OpenAI agents, and intelligent automation.</div>
+                        <div className="text-[13px] text-[#888] leading-relaxed">Embedding LLMs into production apps — RAG pipelines with citations, AI tutors, agents, and intelligent automation.</div>
                         <div className="flex flex-wrap gap-1.5 mt-4">
-                            {['OpenAI', 'LLMs', 'NLP', 'AI Agents'].map(tag => (
+                            {['OpenAI', 'Gemini', 'RAG', 'pgvector', 'MCP', 'AI Agents'].map(tag => (
                                 <span key={tag} className="font-['JetBrains_Mono',monospace] text-[10px] tracking-widest px-2 py-0.5 border border-[#1a1a1a] text-[#888]">{tag}</span>
                             ))}
                         </div>
@@ -184,9 +188,9 @@ export default function TerminalLanding() {
                     <div className="bg-[#0d0d0d] p-8 hover:bg-[#111] transition-colors">
                         <Cpu className="text-[#00ff88] mb-4" size={28} strokeWidth={1.5} />
                         <div className="text-base font-bold mb-2">Backend Systems</div>
-                        <div className="text-[13px] text-[#888] leading-relaxed">Scalable microservices, RESTful APIs, and cloud infrastructure built for production loads.</div>
+                        <div className="text-[13px] text-[#888] leading-relaxed">Scalable microservices, REST & GraphQL APIs, real-time WebSockets, and background job pipelines built for production loads.</div>
                         <div className="flex flex-wrap gap-1.5 mt-4">
-                            {['NestJS', 'Node.js', 'Go', 'AWS', 'Microservices'].map(tag => (
+                            {['NestJS', 'Hono', 'GraphQL', 'Node.js', 'Bun', 'Go', 'Python', 'Rust'].map(tag => (
                                 <span key={tag} className="font-['JetBrains_Mono',monospace] text-[10px] tracking-widest px-2 py-0.5 border border-[#1a1a1a] text-[#888]">{tag}</span>
                             ))}
                         </div>
@@ -196,7 +200,7 @@ export default function TerminalLanding() {
                         <div className="text-base font-bold mb-2">Databases & DevOps</div>
                         <div className="text-[13px] text-[#888] leading-relaxed">Managing data at scale with PostgreSQL, MongoDB, and cloud-native infrastructure patterns.</div>
                         <div className="flex flex-wrap gap-1.5 mt-4">
-                            {['PostgreSQL', 'MongoDB', 'AWS', 'Docker'].map(tag => (
+                            {['PostgreSQL', 'MongoDB', 'Redis', 'Prisma', 'AWS', 'Fly.io', 'Docker'].map(tag => (
                                 <span key={tag} className="font-['JetBrains_Mono',monospace] text-[10px] tracking-widest px-2 py-0.5 border border-[#1a1a1a] text-[#888]">{tag}</span>
                             ))}
                         </div>
@@ -216,6 +220,31 @@ export default function TerminalLanding() {
                 </div>
 
                 <div className="flex flex-col">
+                    <div className="py-10 border-b border-[#1a1a1a] grid grid-cols-1 md:grid-cols-[200px_1fr] gap-6 md:gap-12">
+                        <div>
+                            <div className="font-['JetBrains_Mono',monospace] text-xs text-[#00ff88]">2026 — Present</div>
+                            <div className="font-bold text-lg mt-2 mb-1">ATB Applications LLC</div>
+                            <div className="text-xs text-[#555]">Formerly ShaftFitters LLC</div>
+                            <div className="text-xs text-[#555]">USA (Remote)</div>
+                        </div>
+                        <div>
+                            <div className="text-[22px] font-bold mb-4">Lead Software Engineer</div>
+                            <ul className="space-y-2">
+                                <li className="text-[14px] text-[#888] leading-relaxed pl-4 relative before:content-['→'] before:absolute before:left-0 before:text-[#00ff88]">Lead engineer on <Link href="/projects/shaftfitters" className="text-[#f0f0f0] hover:text-[#00ff88] underline underline-offset-4">ShaftFitters</Link>, a golf shaft recommendation platform built from golfers&apos; own swing data, owning backend, mobile, and web end to end.</li>
+                                <li className="text-[14px] text-[#888] leading-relaxed pl-4 relative before:content-['→'] before:absolute before:left-0 before:text-[#00ff88]">Built the iOS and Android apps in Expo and React Native, with swing-data visualisations in Skia and Reanimated, shipped to the App Store.</li>
+                                <li className="text-[14px] text-[#888] leading-relaxed pl-4 relative before:content-['→'] before:absolute before:left-0 before:text-[#00ff88]">Architected the Hono REST API on AWS Lambda and Fly.io with PostgreSQL, Prisma, and Redis, plus BullMQ queues powering the recommendation engine, maintenance, and catalog sync.</li>
+                                <li className="text-[14px] text-[#888] leading-relaxed pl-4 relative before:content-['→'] before:absolute before:left-0 before:text-[#00ff88]">Implemented App Store and Google Play subscriptions via RevenueCat with webhook-driven entitlements, plus Stripe payments and pay-as-you-go plans.</li>
+                                <li className="text-[14px] text-[#888] leading-relaxed pl-4 relative before:content-['→'] before:absolute before:left-0 before:text-[#00ff88]">Built the Next.js web app and admin console, an affiliate product catalog with supplier purchase orders, and JWT/OTP auth with role-based access.</li>
+                                <li className="text-[14px] text-[#888] leading-relaxed pl-4 relative before:content-['→'] before:absolute before:left-0 before:text-[#00ff88]">Ran production: database migrations and go-live audits, Sentry error tracking, PostHog analytics, Resend email, and Expo push notifications.</li>
+                            </ul>
+                            <div className="flex flex-wrap gap-1.5 mt-4">
+                                {['React Native', 'Expo', 'Next.js', 'TypeScript', 'Hono', 'Node.js', 'PostgreSQL', 'Prisma', 'Redis', 'BullMQ', 'AWS Lambda', 'Fly.io', 'RevenueCat', 'Stripe', 'Sentry', 'PostHog'].map(tag => (
+                                    <span key={tag} className="font-['JetBrains_Mono',monospace] text-[10px] tracking-widest px-2 py-0.5 border border-[#1a1a1a] text-[#888]">{tag}</span>
+                                ))}
+                            </div>
+                        </div>
+                    </div>
+
                     <div className="py-10 border-b border-[#1a1a1a] grid grid-cols-1 md:grid-cols-[200px_1fr] gap-6 md:gap-12">
                         <div>
                             <div className="font-['JetBrains_Mono',monospace] text-xs text-[#00ff88]">2025 — 2026</div>
@@ -257,6 +286,20 @@ export default function TerminalLanding() {
                             </div>
                         </div>
                     </div>
+
+                    <div className="py-10 border-b border-[#1a1a1a] grid grid-cols-1 md:grid-cols-[200px_1fr] gap-6 md:gap-12">
+                        <div>
+                            <div className="font-['JetBrains_Mono',monospace] text-xs text-[#00ff88]">2022</div>
+                            <div className="font-bold text-lg mt-2 mb-1">Shypass</div>
+                            <div className="text-xs text-[#555]">Zambia</div>
+                        </div>
+                        <div>
+                            <div className="text-[22px] font-bold mb-4">Full Stack Developer</div>
+                            <ul className="space-y-2">
+                                <li className="text-[14px] text-[#888] leading-relaxed pl-4 relative before:content-['→'] before:absolute before:left-0 before:text-[#00ff88]">First professional role, building frontend and backend features across the product.</li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </section>
 
@@ -272,30 +315,13 @@ export default function TerminalLanding() {
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[1px] bg-[#1a1a1a]">
-                    {[
-                        { cat: 'AI Platform', title: 'PricePul', desc: 'B2B pricing intelligence SaaS. Monitors competitor pricing pages 24/7 with AI-powered change detection and Slack/CRM alerts for sales teams.', tags: ['Next.js', 'AI', "HonoJS", "PrismaORM", "PostgreSQL", "TailwindCSS", "Redis", 'SaaS', 'B2B'], link: 'https://pricepul.com', linkText: 'pricepul.com', num: '01' },
-                        { cat: 'AI Platform', title: 'AudienceAce', desc: 'AI-powered B2B lead generation platform utilizing an NLP engine to identify, qualify, and engage the right audiences at scale.', tags: ['NLP', 'AI', 'B2B', 'Lead Gen', "NestJS", "TypeORM", "PostgreSQL", "Python", "RabitMQ", "Redis"], link: 'https://audienceace.com', linkText: 'audienceace.com', num: '02' },
-                        { cat: 'E-Commerce', title: 'MetiBuy', desc: 'Premium multi-vendor marketplace with scalable serverless architecture, handling complex vendor management and payment flows.', tags: ['Serverless', 'E-Commerce', 'AWS', "HonoJS", "PrismaORM", "PostgreSQL", "TailwindCSS", "Redis", "Next.js"], link: 'https://metibuy.shop', linkText: 'metibuy.shop', num: '03' },
-                        { cat: 'Real Estate', title: 'Homiee Real Estate', desc: 'Platform handling 100+ active listings with AI-powered Q&A agents, video interaction panels, and streamlined UX for the Australian market.', tags: ['Next.js', 'OpenAI', 'Real Estate', "Express.js", "Mongoose", "MongoDB"], link: '#', linkText: 'Internal Project', num: '04' },
-                        { cat: 'Productivity', title: 'MeetingFlow', desc: 'AI productivity platform interface for meeting optimization, helping teams extract more value from every session. (Landing Page only)', tags: ['AI', 'Productivity', 'SaaS'], link: 'https://meetingflow.vercel.app', linkText: 'meetingflow.app', num: '05' },
-                        { cat: 'Microservices', title: 'GMB Reviews Dashboard', desc: 'Dashboard aggregating Google My Business data using Go microservices for real-time business intelligence and review insights.', tags: ['Golang', 'Microservices', 'Dashboard'], link: 'https://gmbrevs.com', linkText: 'gmbrevs.com', num: '06' },
-            { 
-  cat: 'Backend API', 
-  title: 'HeartLink (APP)', 
-  desc: 'A comprehensive dating application backend built with Django REST Framework, featuring a real-time WebSocket matching engine, GPS location radiuses, and WhatsApp-style chat.', 
-  tags: ['Python', 'Django', 'WebSockets', 'PostgreSQL', 'Redis'], 
-  link: 'https://play.google.com/store/apps/details?id=com.datadate.datingapp', 
-  linkText: 'Google Play Store', 
-  num: '07' 
-}
-
-                    ].map((project) => (
+                    {PROJECTS.map((project) => (
                         <div key={project.num} className="bg-[#0d0d0d] p-9 relative overflow-hidden transition-colors hover:bg-[#0d1a12] group">
                             <div className="absolute top-0 left-0 right-0 h-[2px] bg-[#00ff88] scale-x-0 origin-left transition-transform duration-300 group-hover:scale-x-100"></div>
                             <div className="font-['JetBrains_Mono',monospace] text-[10px] text-[#00ff88] tracking-widest uppercase mb-3">
                                 {project.cat}
                             </div>
-                            <div className="text-[22px] font-bold mb-3">{project.title}</div>
+                            <Link href={`/projects/${project.slug}`} className="block text-[22px] font-bold mb-3 hover:text-[#00ff88] transition-colors">{project.title}</Link>
                             <div className="text-[14px] text-[#888] leading-relaxed mb-6">
                                 {project.desc}
                             </div>
@@ -304,9 +330,16 @@ export default function TerminalLanding() {
                                     <span key={tag} className="font-['JetBrains_Mono',monospace] text-[10px] tracking-widest px-2 py-0.5 border border-[#1a1a1a] text-[#888]">{tag}</span>
                                 ))}
                             </div>
-                            <a href={project.link} target={project.link !== '#' ? "_blank" : undefined} rel="noreferrer" className="inline-flex items-center gap-1 font-['JetBrains_Mono',monospace] text-[12px] text-[#00ff88] tracking-widest hover:underline">
-                                {project.linkText} {project.link !== '#' && <ArrowRight size={12} />}
-                            </a>
+                            <div className="flex flex-col items-start gap-2">
+                                <Link href={`/projects/${project.slug}`} className="inline-flex items-center gap-1 font-['JetBrains_Mono',monospace] text-[12px] text-[#f0f0f0] tracking-widest uppercase hover:text-[#00ff88] transition-colors">
+                                    Case study <ArrowRight size={12} />
+                                </Link>
+                                {[{ link: project.link, linkText: project.linkText }, ...(project.extraLinks ?? [])].map(({ link, linkText }) => (
+                                    <a key={linkText} href={link} target={link !== '#' ? "_blank" : undefined} rel="noreferrer" className="inline-flex items-center gap-1 font-['JetBrains_Mono',monospace] text-[12px] text-[#00ff88] tracking-widest hover:underline">
+                                        {linkText} {link !== '#' && <ArrowRight size={12} />}
+                                    </a>
+                                ))}
+                            </div>
                             <div className="absolute bottom-6 right-6 font-['JetBrains_Mono',monospace] text-5xl font-bold text-[#1a1a1a]">
                                 {project.num}
                             </div>

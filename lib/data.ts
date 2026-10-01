@@ -20,6 +20,21 @@ interface Experience {
 
 export const EXPERIENCES: Experience[] = [
     {
+        company: "ATB Applications LLC (formerly ShaftFitters LLC)",
+        role: "Lead Software Engineer",
+        location: "USA (Remote)",
+        period: "2026 — Present",
+        description: [
+            "Lead engineer on ShaftFitters, a golf shaft recommendation platform built from golfers' own swing data, owning backend, mobile, and web end to end.",
+            "Built the iOS and Android apps in Expo and React Native, with swing-data visualisations in Skia and Reanimated, shipped to the App Store.",
+            "Architected the Hono REST API on AWS Lambda and Fly.io with PostgreSQL, Prisma, and Redis, plus BullMQ queues powering the recommendation engine, maintenance, and catalog sync.",
+            "Implemented App Store and Google Play subscriptions via RevenueCat with webhook-driven entitlements, plus Stripe payments and pay-as-you-go plans.",
+            "Built the Next.js web app and admin console, an affiliate product catalog with supplier purchase orders, and JWT/OTP auth with role-based access.",
+            "Ran production: database migrations and go-live audits, Sentry error tracking, PostHog analytics, Resend email, and Expo push notifications."
+        ],
+        tech: ["React Native", "Expo", "Next.js", "TypeScript", "Hono", "Node.js", "PostgreSQL", "Prisma", "Redis", "BullMQ", "AWS Lambda", "Fly.io", "RevenueCat", "Stripe", "Sentry", "PostHog"]
+    },
+    {
         company: "Homiee",
         role: "Full Stack Developer",
         location: "Australia (Remote)",
@@ -74,6 +89,16 @@ export const EXPERIENCES: Experience[] = [
             "Docker",
             "GCP"
         ]
+    },
+    {
+        company: "Shypass",
+        role: "Full Stack Developer",
+        location: "Zambia",
+        period: "2022",
+        description: [
+            "First professional role, building frontend and backend features across the product."
+        ],
+        tech: []
     }
 ];
 
