@@ -96,9 +96,9 @@ export const EXPERIENCES: Experience[] = [
         location: "Zambia",
         period: "2022",
         description: [
-            "First professional role, building frontend and backend features across the product."
+            "First professional role, building frontend and backend features across the product with React, Express, and MongoDB."
         ],
-        tech: []
+        tech: ["ExpressJS", "ReactJS", "JavaScript", "MongoDB"]
     }
 ];
 

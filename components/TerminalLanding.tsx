@@ -296,8 +296,13 @@ export default function TerminalLanding() {
                         <div>
                             <div className="text-[22px] font-bold mb-4">Full Stack Developer</div>
                             <ul className="space-y-2">
-                                <li className="text-[14px] text-[#888] leading-relaxed pl-4 relative before:content-['→'] before:absolute before:left-0 before:text-[#00ff88]">First professional role, building frontend and backend features across the product.</li>
+                                <li className="text-[14px] text-[#888] leading-relaxed pl-4 relative before:content-['→'] before:absolute before:left-0 before:text-[#00ff88]">First professional role, building frontend and backend features across the product with React, Express, and MongoDB.</li>
                             </ul>
+                            <div className="flex flex-wrap gap-1.5 mt-4">
+                                {['ExpressJS', 'ReactJS', 'JavaScript', 'MongoDB'].map(tag => (
+                                    <span key={tag} className="font-['JetBrains_Mono',monospace] text-[10px] tracking-widest px-2 py-0.5 border border-[#1a1a1a] text-[#888]">{tag}</span>
+                                ))}
+                            </div>
                         </div>
                     </div>
                 </div>
