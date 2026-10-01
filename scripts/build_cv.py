@@ -139,9 +139,8 @@ story.append(job(
     "Elobbs Technologies", "Remote (Bangladesh)", "Jun 2023 – Jan 2025",
     "Backend &amp; Systems Lead / Full Stack Developer",
     [
-        "Engineered NestJS backend systems supporting 100,000+ active job listings, with REST APIs for listings, "
-        "contracts, and user workflows.",
-        "Reduced database query times by 40% through advanced PostgreSQL indexing strategies.",
+        "Engineered NestJS backend services for a job posting and contract management platform, with REST APIs for "
+        "listings, contracts, and user workflows.",
         "Designed secure authentication flows and role-based access control (RBAC).",
         "Built a Google Business Reviews aggregation system on Go (Gin) microservices, with real-time sync between "
         "external APIs and internal dashboards.",

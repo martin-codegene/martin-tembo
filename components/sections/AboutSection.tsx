@@ -11,7 +11,7 @@ const AboutSection = () => (
             </p>
             <p>
                 Currently, I'm building high-performance real estate platforms at <strong className="text-white">Homiee</strong>,
-                where I focus on sub-100ms latency search engines. Prior to that, I engineered systems handling 100k+ listings
+                where I focus on sub-100ms latency search engines. Prior to that, I engineered backend systems for a job platform
                 at Elobbs Technologies.
             </p>
             <p>
