@@ -194,8 +194,108 @@ export const PROJECTS: PortfolioProject[] = [
         ],
     },
     {
-        slug: 'paycore',
+        slug: 'next-generation-design-ark',
         num: '03',
+        cat: '3D & AI Design',
+        title: 'Next Generation Design Ark',
+        status: 'Live',
+        desc: 'Browser-based architectural design studio: draw a floor plan, see it as a 3D house, furnish it with an AI design agent, and render photoreal images and walkthrough videos with Blender Cycles. One versioned building model drives the 2D plan, the 3D view, GLB/AR export, and every render.',
+        overview: [
+            'Next Generation Design Ark lets anyone design a home in the browser. Users draw rooms, walls, doors, windows, stairs, and roofs on a 2D plan, see the result as a 3D house in real time, furnish it from a model library, and turn it into rendered stills, walkthrough videos with AI voice-overs, live voice-guided tours, and AR models.',
+            'One versioned building model is the source of truth. The 2D plan, the React Three Fiber viewport, GLB export, AR models, and the Blender scene are all generated from it, and every change goes through a validated, undoable command — whether it came from the user or from the AI.',
+            'I designed and built the whole system: a Next.js editor, a Bun + Hono API with PostgreSQL and a BullMQ render queue, a Python worker that drives Blender headlessly, and an optional GPU service that turns photos into 3D models.',
+        ],
+        sections: [
+            {
+                title: 'Editor',
+                items: [
+                    'SVG plan with pan, zoom, snapping, and dimension labels; rooms of any shape, walls, doors and windows, courtyards, several floors, stairs, and roofs with textured coverings.',
+                    'React Three Fiber 3D view with real wall openings, glazed windows, GLB furniture, move/rotate gizmos, and shadows.',
+                    'Every edit is a typed command — create room, place furniture, change material, and so on — validated before it applies, so overlapping rooms or openings that don’t fit are rejected with a message. Full undo/redo.',
+                    'Trace over a reference plan, sketch, or photo placed under the 2D plan and scaled by clicking two points of known distance.',
+                    'Text and logos on walls, furniture, and roofs; photo-scanned PBR finishes.',
+                    'Export to JSON or GLB, plus portable .3dai project bundles (up to 2 GB) that carry the design and its media into any account.',
+                ],
+            },
+            {
+                title: 'AI Design Agent',
+                items: [
+                    'Written or spoken requests return proposals that can generate floor plans, add and resize rooms, change doors and windows, furnish rooms, apply palettes and materials, place lights, change render settings, and plan walkthroughs.',
+                    'Provider interface with Claude (structured outputs) and OpenAI (Responses API) sharing one prompt, output schema, and converter, plus a deterministic offline mock.',
+                    'Every proposal is dry-run against the editor’s commands before the user sees it; larger changes need confirmation, and an applied proposal is a single undo step.',
+                    'The agent sees the user’s 3D view, remembers each project’s conversation, and can edit the whole building — floors, stairs, the roof, lettering, and the user’s own models.',
+                    'It checks its own work: the browser applies a proposal to a copy of the design, renders it offscreen, and the model either approves it or returns fixes, for up to three rounds.',
+                    'Import from an image: floor plans and PDFs, hand-drawn sketches, room photos, and house exteriors become a reviewable proposal.',
+                    'Voice input: speech-to-text, then an AI clean-up that turns spoken measurements into numbers, with the clip kept for playback and correction.',
+                ],
+            },
+            {
+                title: 'Rendering & Walkthroughs',
+                items: [
+                    'Photoreal stills and walkthrough videos rendered by a Python worker that drives Blender Cycles in background mode.',
+                    'Three ways to run a render: in the API process, through a durable Redis/BullMQ queue, or on remote render agents that connect over WebSocket with a token — admins manage the render machines.',
+                    'Queued jobs survive API restarts, crashed workers are retried, long renders resume after dropped connections, and cancelling stops Blender within about a second.',
+                    'Light presets, camera looks, and an AI photo finish that upscales stills 2× through fal.ai.',
+                    'Walkthrough videos with smooth camera paths, chapters, titles, music, and captions, voiced over with ElevenLabs text-to-speech, plus an embeddable walkthrough player.',
+                ],
+            },
+            {
+                title: 'Assets & 3D Models',
+                items: [
+                    '69 CC0 Kenney models imported with headless Blender, Poly Haven items, and CC0/CC-BY models searched and imported from Sketchfab over OAuth.',
+                    'Create with AI: describe an object or upload a photo, answer clarifying questions, preview and refine it in words, and save it as a GLB.',
+                    'Detailed photo-to-3D meshes from Hunyuan3D — hosted on fal.ai, or self-hosted on GPU render agents through a mesh server that installs itself.',
+                    'Refine in Blender: change a model’s shape by chatting with the AI, with AI textures from the GPU machine or Meshy when no GPU is available.',
+                    'GLB uploads are validated, measured, re-pivoted, and scaled to metres automatically (“My assets”, up to 200 per user).',
+                ],
+            },
+            {
+                title: 'Sharing & Leads',
+                items: [
+                    'Read-only share links, public or password-protected (scrypt, rate-limited, 192-bit tokens), that can be rotated or revoked, with link previews for chat and social apps.',
+                    'Shared folders and a public showcase gallery for opted-in projects.',
+                    '“View in your space” AR built in the visitor’s browser with model-viewer — WebXR on Android, Quick Look on iPhone, and a QR code on desktop.',
+                    'Live tours on share links led by an ElevenLabs voice guide that visitors can talk to and ask questions as they move through the home, with a Q&A training export.',
+                    'Viewing requests with a 0–100 lead score in several languages, email alerts through Resend, and reminders after 24 hours.',
+                    'Brand kit with a studio logo and notification settings.',
+                ],
+            },
+            {
+                title: 'Billing',
+                items: [
+                    'Paddle Billing: Studio, Practice, and Business plans (monthly or yearly), one-time credit packs, checkout, the customer portal, and Retain.',
+                    'Heavy work — renders, AI requests, voice, mesh generation, upscaling — is metered in credits priced from real costs, with live balances in the editor.',
+                    'Webhooks verified by signature and an IP allowlist, handled idempotently so a credit pack is applied once per transaction.',
+                    'Plan locks on every paid endpoint, a pricing page with a full plan comparison, and privacy, terms, and refund pages.',
+                ],
+            },
+            {
+                title: 'Architecture',
+                items: [
+                    'Bun-workspace monorepo with shared packages for the design model and geometry engine, editor state, asset library, render contracts, AI providers, and typed API contracts.',
+                    'Better Auth with email codes, magic links, passkeys, and Google, Apple, and Microsoft sign-in with account linking; HttpOnly session cookies, CSRF origin checks, and per-user project ownership.',
+                    'Projects with revisions (optimistic concurrency), snapshots, trash and restore, and an activity log linking voice notes, AI requests, edits, renders, and shares.',
+                    'PostgreSQL on Neon through Prisma 7; object storage with three drivers — local disk, S3-compatible (MinIO, AWS S3, Cloudflare R2), and native Oracle Cloud Object Storage — all passing one contract test suite.',
+                    'Web app on Vercel; API, workers, and Redis on an Oracle VPS with Docker Compose and Caddy, deployed over SSH by GitHub Actions after CI (lint, typecheck, Vitest, Python tests).',
+                    'Umami for privacy-friendly analytics.',
+                ],
+            },
+        ],
+        stack: [
+            { group: 'Frontend', items: ['Next.js', 'React', 'React Three Fiber', 'Three.js', 'Drei', 'Zustand', 'Tailwind CSS', 'model-viewer'] },
+            { group: 'Backend', items: ['Bun', 'Hono', 'Zod', 'Prisma', 'Better Auth', 'BullMQ', 'WebSockets'] },
+            { group: '3D & Rendering', items: ['Blender', 'Cycles', 'Python', 'GLB', 'WebXR', 'FFmpeg'] },
+            { group: 'AI & Media', items: ['Claude', 'OpenAI', 'ElevenLabs', 'Hunyuan3D', 'fal.ai', 'Meshy'] },
+            { group: 'Infra', items: ['PostgreSQL', 'Neon', 'Redis', 'S3', 'Cloudflare R2', 'Oracle Cloud', 'Docker', 'Caddy', 'Vercel', 'GitHub Actions'] },
+            { group: 'Business', items: ['Paddle', 'Resend', 'Umami'] },
+        ],
+        tags: ['Next.js', 'React Three Fiber', 'Three.js', 'Bun', 'HonoJS', 'PrismaORM', 'PostgreSQL', 'Redis', 'BullMQ', 'Blender', 'Python', 'Claude', 'OpenAI', 'ElevenLabs', 'WebXR', 'Paddle'],
+        link: 'https://www.ngdesignark.com',
+        linkText: 'ngdesignark.com',
+    },
+    {
+        slug: 'paycore',
+        num: '04',
         cat: 'Fintech',
         title: 'Paycore',
         status: 'In Development',
@@ -270,7 +370,7 @@ export const PROJECTS: PortfolioProject[] = [
     },
     {
         slug: 'homiee',
-        num: '04',
+        num: '05',
         cat: 'Real Estate',
         title: 'Homiee Real Estate',
         status: 'Live',
@@ -302,7 +402,7 @@ export const PROJECTS: PortfolioProject[] = [
     },
     {
         slug: 'pricepul',
-        num: '05',
+        num: '06',
         cat: 'AI Platform',
         title: 'PricePul',
         status: 'Live',
@@ -330,7 +430,7 @@ export const PROJECTS: PortfolioProject[] = [
     },
     {
         slug: 'audienceace',
-        num: '06',
+        num: '07',
         cat: 'AI Platform',
         title: 'AudienceAce',
         status: 'Live',
@@ -366,7 +466,7 @@ export const PROJECTS: PortfolioProject[] = [
     },
     {
         slug: 'eurepraxis',
-        num: '07',
+        num: '08',
         cat: 'Research AI',
         title: 'Eurepraxis',
         status: 'In Development',
@@ -404,7 +504,7 @@ export const PROJECTS: PortfolioProject[] = [
     },
     {
         slug: 'peptide-maxxing',
-        num: '08',
+        num: '09',
         cat: 'E-Commerce',
         title: 'Peptide Maxxing',
         status: 'Live',
@@ -431,7 +531,7 @@ export const PROJECTS: PortfolioProject[] = [
     },
     {
         slug: 'metibuy',
-        num: '09',
+        num: '10',
         cat: 'E-Commerce',
         title: 'MetiBuy',
         status: 'Live',
@@ -467,7 +567,7 @@ export const PROJECTS: PortfolioProject[] = [
     },
     {
         slug: 'gmb-reviews-dashboard',
-        num: '10',
+        num: '11',
         cat: 'Microservices',
         title: 'GMB Reviews Dashboard',
         status: 'Live',
@@ -491,7 +591,7 @@ export const PROJECTS: PortfolioProject[] = [
     },
     {
         slug: 'heartlink',
-        num: '11',
+        num: '12',
         cat: 'Payments & Consulting',
         title: 'HeartLink (APP)',
         status: 'Live',
@@ -525,7 +625,7 @@ export const PROJECTS: PortfolioProject[] = [
     },
     {
         slug: 'meetingflow',
-        num: '12',
+        num: '13',
         cat: 'Productivity',
         title: 'MeetingFlow',
         status: 'Live',
