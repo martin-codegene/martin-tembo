@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint . --ext .js,.ts,.jsx,.tsx",
+    "lint:fix": "eslint . --ext .js,.ts,.jsx,.tsx --fix"
   },
   "dependencies": {
     "framer-motion": "^12.23.26",
@@ -16,12 +17,15 @@
     "react-dom": "19.2.3"
   },
   "devDependencies": {
+    "@antfu/eslint-config": "^10.0.0",
+    "@next/eslint-plugin-next": "^16.4.6",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "16.1.1",
+    "eslint-plugin-format": "^2.0.1",
     "tailwindcss": "^4",
     "typescript": "^5"
   },
